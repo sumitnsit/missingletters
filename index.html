@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="user-scalable = no">
+<link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption' rel='stylesheet' type='text/css'>
+	<title>Missing Letters</title>
+	<style type="text/css">
+	body, html{
+
+	    margin: 0px;
+	    padding: 0px;
+	    padding-top: 60px;
+	    background-color: #123656;
+		font-family: 'PT Sans Caption', sans-serif;
+	}
+
+	body{
+		margin: 20px;
+		text-align: center;
+		font-size: 2em;
+	}
+
+	#message{
+		letter-spacing: 20px;
+	    color: #959696;
+	    font-size: 1.5em;
+	    text-shadow: 1px 1px 1px black;
+	    padding-bottom: 400px;
+
+	}
+
+	.notice{
+		padding: 80px 0px;
+		padding-top: 150px;
+	    font-size: 1.3em;
+	    color: black;
+	    letter-spacing: 3px;
+	    text-shadow: 0px 1px 1px #585757;
+	}
+
+	#gaali{
+		    padding-top: 800px;
+    font-size: 2.5em;
+    letter-spacing: 30px;
+    color: #8BA510;
+    text-shadow: 0px 1px 1px black;
+	}
+	</style>
+
+</head>
+<body>
+
+<div id="message">
+	
+</div>
+
+<div class="notice">You must be wondering what happened to the rest of the letters, scroll down to find them</div>
+
+<div id="gaali">
+	
+</div>
+
+<script type="text/javascript">
+	
+	var getParam = function(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#/]*)').exec(window.location.href);
+		return results[1] || 0;
+	}
+
+	var message = document.getElementById("message");
+
+	var gaali = getParam("gaali").toUpperCase().split("");
+
+	var text = "";
+
+	for(var i = 65; i < 91; i++){
+		if(gaali.indexOf(String.fromCharCode(i)) < 0)
+			text += String.fromCharCode(i);
+	}
+
+	message.innerHTML = text;
+
+	document.getElementById("gaali").innerHTML = getParam("gaali").toUpperCase();
+
+
+</script>
+</body>
+</html>
