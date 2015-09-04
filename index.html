@@ -79,11 +79,14 @@
 
 	var text = "";
 
+	var j = 0;
 	for(var i = 65; i < 91; i++){
 		if(gaali.indexOf(String.fromCharCode(i)) < 0)
 			text += String.fromCharCode(i);
-			if(!(i % 5)){
+			j++;
+			if(!(j % 5)){
 				text += "<br />"
+				j = 0;
 			}
 	}
 
